@@ -1,6 +1,8 @@
 package com.example.beginneractivity;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,15 +13,6 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link fullDescFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link fullDescFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class fullDescFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
     private SearchItem currentItem;
@@ -28,7 +21,6 @@ public class fullDescFragment extends Fragment {
         // Required empty public constructor
     }
 
-    // TODO: Rename and change types and number of parameters
     public static fullDescFragment newInstance(SearchItem item) {
         fullDescFragment fragment = new fullDescFragment();
 
@@ -64,12 +56,13 @@ public class fullDescFragment extends Fragment {
         dishDesc.setText(currentItem.dishDescription);
         dishPrice.setText(currentItem.dishPrice + "$");
         dishResturant.setText(currentItem.dishResturant);
-        ratingBar.setNumStars(4);
+
+        Drawable stars = ratingBar.getProgressDrawable();
+        stars.setTint(Color.WHITE);
 
         return v;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(String tag, Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(tag, uri);

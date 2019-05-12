@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -97,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements  beginSearchFragm
                         return true;
                     }
 
-                    case R.id.navigation_discount:
+                    case R.id.navigation_login:
                     {
                         ///
 

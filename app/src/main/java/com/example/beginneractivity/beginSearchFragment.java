@@ -1,6 +1,7 @@
 package com.example.beginneractivity;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.LinkedList;
@@ -18,6 +20,7 @@ public class beginSearchFragment extends Fragment{
     private OnFragmentInteractionListener mListener;
     private String locationSelection, categorySelection;
     private View rootView;
+    private Spinner catSpinner = null, locSpinner = null;
 
 
     public beginSearchFragment() {
@@ -41,11 +44,11 @@ public class beginSearchFragment extends Fragment{
 
         v = inflater.inflate(R.layout.fragment_begin_search, container, false);
 
-        final Spinner catSpinner = v.findViewById(R.id.spinner_perferred_cusine);
+        catSpinner = v.findViewById(R.id.spinner_perferred_cusine);
         ArrayAdapter<String> catAdapter = new ArrayAdapter<>(getActivity().getApplicationContext(), R.layout.support_simple_spinner_dropdown_item, MainActivity.categories);
         catSpinner.setAdapter(catAdapter);
 
-        final Spinner locSpinner = v.findViewById(R.id.spinner_enter_city);
+        locSpinner = v.findViewById(R.id.spinner_enter_city);
         ArrayAdapter<String> locAdapter = new ArrayAdapter<>(getActivity().getApplicationContext(), R.layout.support_simple_spinner_dropdown_item, MainActivity.locations);
         locSpinner.setAdapter(locAdapter);
 
@@ -55,7 +58,10 @@ public class beginSearchFragment extends Fragment{
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 categorySelection = MainActivity.categories.get(position);
-                catSpinner.setSelection(position);
+
+                if(parent.getChildAt(0) != null)
+                    ((TextView) parent.getChildAt(0)).setTextColor(Color.WHITE);
+
             }
 
             @Override
@@ -69,6 +75,9 @@ public class beginSearchFragment extends Fragment{
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 locationSelection = MainActivity.locations.get(position);
                 locSpinner.setSelection(position);
+
+                if(parent.getChildAt(0) != null)
+                    ((TextView) parent.getChildAt(0)).setTextColor(Color.WHITE);
             }
 
             @Override
@@ -108,6 +117,7 @@ public class beginSearchFragment extends Fragment{
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+
         if (context instanceof OnFragmentInteractionListener) {
             mListener = (OnFragmentInteractionListener) context;
         } else {
