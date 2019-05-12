@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".searchListFragment">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity"
+        android:orientation="vertical">
+
+
+        <SearchView
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/sr"
+            android:hint="Enter Your Delicious Food "
+            ></SearchView>
+
+        <Spinner
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner"
+            android:layout_toRightOf="@id/sr"
+            android:text = "Select"
+            android:gravity="center"
+            android:background="@android:color/holo_blue_dark"
+
+            ></Spinner>
+
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/Price_Limit"
+            android:visibility="invisible">
+
+            <EditText
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:hint="Limit Start : "
+                android:id = "@+id/Limit_Start"
+                />
+
+            <EditText
+
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:layout_toRightOf="@id/Limit_Start"
+                android:id="@+id/Limit_End"
+                android:hint="Limit End"
+                />
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Done"
+                android:id="@+id/Done"
+                android:layout_below="@id/Limit_End"
+
+                />
+
+        </RelativeLayout>
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/list_View"
+            android:visibility="visible"
+            android:layout_below="@id/Price_Limit"
+
+            >
+
+        </ListView>
+
+    </RelativeLayout>
+
+
+
+</FrameLayout>

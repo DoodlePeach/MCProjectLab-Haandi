@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/b">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Haandi"
+            android:textSize="72dp"
+            android:layout_marginTop="125dp"
+            android:textAlignment="center"
+            android:textStyle="italic"
+            android:fontFamily="serif"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="230dp"
+            android:layout_marginRight="61dp"
+            android:fontFamily="@font/miniver"
+            android:text="Discover Delicious Food"
+            android:textColor="@android:color/white"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:fontFamily="@font/miniver" />
+
+
+        <RelativeLayout
+            android:id="@+id/search_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="300dp">
+
+
+            <TextView
+                android:id="@+id/view_enter_city"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="10dp"
+                android:text="Please Enter Your City"
+                android:textColor="@android:color/white"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spinner_enter_city"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/view_enter_city"
+                android:backgroundTint="@android:color/white"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="50dp"
+                android:textColor="@android:color/white"
+                >
+
+            </Spinner>
+
+            <TextView
+                android:id="@+id/view_perferred_cusine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/spinner_enter_city"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="43dp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:text="Perferred Cusine" />
+
+
+            <Spinner
+                android:id="@+id/spinner_perferred_cusine"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/view_perferred_cusine"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="50dp"
+                android:backgroundTint="@android:color/white"> </Spinner>
+
+            <Button
+                android:id="@+id/button_find_me_food"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/spinner_perferred_cusine"
+                android:layout_marginTop="80dp"
+                android:layout_centerHorizontal="true"
+                android:backgroundTint="@android:color/white"
+                android:text="Find Me Food!" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+</ScrollView>

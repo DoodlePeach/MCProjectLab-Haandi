@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:id="@+id/image"
+            />
+
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="60dp"
+            android:id="@+id/dishname"
+            android:layout_toRightOf="@+id/image"
+            />
+
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="60dp"
+            android:id="@+id/dishResturant"
+            android:layout_toRightOf="@id/dishname"
+            />
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="60dp"
+            android:id="@+id/disDiscription"
+            android:layout_toRightOf="@+id/dishResturant"
+            />
+
+        <TextView
+            android:layout_width="50dp"
+            android:layout_height="60dp"
+            android:id="@+id/dishPrice"
+            android:layout_toRightOf="@+id/disDiscription"
+            />
+
+
+
+    </RelativeLayout>
+
+</LinearLayout>
