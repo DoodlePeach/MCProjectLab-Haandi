@@ -37,6 +37,9 @@ public class MainActivity extends AppCompatActivity implements  beginSearchFragm
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_layout);
 
+
+        /////sdasdsda
+
         ref = FirebaseDatabase.getInstance().getReference();
         ref.addValueEventListener(new ValueEventListener() {
             @Override
