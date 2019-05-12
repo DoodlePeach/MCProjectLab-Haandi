@@ -63,8 +63,6 @@ public class fullDescFragment extends Fragment {
         return v;
     }
 
-    /// asdad
-
     public void onButtonPressed(String tag, Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(tag, uri);
