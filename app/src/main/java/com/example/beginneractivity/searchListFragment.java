@@ -150,7 +150,7 @@ public class searchListFragment extends Fragment {
                 }
                 else
                 {
-                    // Use For Seperating those Items which Contains User Given String
+                    // Use For Seperating those Items which Contains com.example.beginneractivity.User Given String
                     set_less_Data();
                     /////////////// Searching Criteria By Name , Resturant, Price
                     if(search==0)search_By_Dishname(s);

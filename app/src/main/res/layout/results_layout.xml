@@ -2,20 +2,19 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/cardview_light_background">
+    android:background="@drawable/nbv">
 
     <ListView
         android:id="@+id/lv_show_results"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="49dp"
-        android:layout_marginBottom="0dp" />
+        android:layout_below="@+id/abcs"
+        android:layout_marginTop="10dp"/>
 
     <SearchView
+        android:id="@+id/abcs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="0dp" />
+        android:layout_marginTop="4dp" />
 </RelativeLayout>

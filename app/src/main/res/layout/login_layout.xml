@@ -3,139 +3,159 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@android:color/holo_blue_bright">
+    android:background="@drawable/b">
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Haandi"
-        android:textSize="70dp"
-        android:layout_marginTop="70dp"
+        android:textSize="72dp"
+        android:layout_marginTop="125dp"
         android:textAlignment="center"
         android:textStyle="italic"
-        android:typeface="serif"/>
+        android:fontFamily="@font/eater"
+        android:textColor="@android:color/white" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="230dp"
+        android:layout_marginRight="61dp"
+        android:fontFamily="@font/miniver"
+        android:text="Discover Delicious Food"
+        android:textColor="@android:color/white"
+        android:textSize="20dp"
+        android:textStyle="bold" />
 
-    <android.support.v7.widget.CardView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginLeft="5dp"
-        app:cardCornerRadius="4dp">
+        android:layout_marginTop="300dp"
+        android:id="@+id/rv-01"
+        >
 
-        <RelativeLayout
-            android:id="@+id/search_info"
+        <TextView
+            android:id="@+id/view_enter_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="10dp"
+            android:text="Please Enter Your Email"
+            android:textColor="@android:color/white"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editText_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/holo_blue_dark">
+            android:layout_alignTop="@id/view_enter_city"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="10dp"
+            android:hint="Example@email.com"
+            android:layout_marginRight="50dp"
+            android:textColorHint="@android:color/white"
+            android:backgroundTint="@android:color/white"
+            android:textColor="@android:color/white">
 
-            <TextView
-                android:id="@+id/view_enter_city"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="26dp"
-                android:layout_marginTop="19dp"
-                android:text="Please enter your email"
-                android:textStyle="bold"/>
-
-            <EditText
-                android:id="@+id/edittext_email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@id/view_enter_city"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="47dp"
-                android:layout_marginTop="22dp"
-                android:layout_marginRight="75dp"
-                android:hint="example@email.com">
-
-            </EditText>
-
-            <TextView
-                android:id="@+id/view_enter_password"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@id/edittext_email"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="26dp"
-                android:layout_marginTop="51dp"
-                android:text="Please enter your password"
-                android:textStyle="bold"/>
+        </EditText>
 
 
-            <EditText
-                android:id="@+id/edittext_login"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@id/view_enter_password"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="49dp"
-                android:layout_marginTop="23dp"
-                android:layout_marginRight="120dp"
-                android:hint="Password">
+        <TextView
+            android:id="@+id/view_enter_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/editText_email"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="43dp"
+            android:text="Please Enter Your Password"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:textSize="15dp"/>
 
 
-            </EditText>
+        <EditText
+            android:id="@+id/editText_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/view_enter_password"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="10dp"
+            android:hint="Password"
+            android:layout_marginRight="50dp"
+            android:textColorHint="@android:color/white"
+            android:backgroundTint="@android:color/white"
+            android:textColor="@android:color/white">
 
-            <Button
-                android:id="@+id/button_login_login"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@id/edittext_login"
-                android:layout_marginTop="50dp"
-                android:text="LOGIN"
-                android:layout_centerHorizontal="true"/>
-        </RelativeLayout>
-    </android.support.v7.widget.CardView>
+        </EditText>
 
+        <Button
+            android:id="@+id/button_login_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/editText_login"
+            android:layout_centerHorizontal="true"
+            android:text="LOGIN"
+            android:backgroundTint="@android:color/white"/>
 
-    <android.support.v7.widget.CardView
+    </RelativeLayout>
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="580dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginLeft="5dp"
-        app:cardCornerRadius="4dp">
+        android:layout_below="@+id/rv-01"
+        android:layout_marginTop="10dp">
 
-        <RelativeLayout
-            android:id="@+id/social_login_layout"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/textview_social_login"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@android:color/holo_blue_dark">
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="Or login with:"
+            android:textColor="@android:color/white"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/textview_social_login"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="11dp"
-                android:text="Or login with:"
-                android:textStyle="bold"/>
+        <Button
+            android:id="@+id/button_google"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textview_social_login"
+            android:layout_marginLeft="90dp"
+            android:layout_marginTop="0dp"
+            android:text="Google"
+            android:textColor="@android:color/holo_orange_light"
+            android:backgroundTint="@android:color/white"
+            />
 
-            <Button
-                android:id="@+id/button_google"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/textview_social_login"
-                android:layout_marginLeft="100dp"
-                android:layout_marginTop="17dp"
-                android:text="Google" />
+        <Button
+            android:id="@+id/button_facebook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/button_google"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="175dp"
+            android:layout_marginTop="0dp"
+            android:text="Facebook"
+            android:textColor="@android:color/holo_blue_dark"
+            android:backgroundTint="@android:color/white"/>
 
-            <Button
-                android:id="@+id/button_facebook"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/button_google"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="227dp"
-                android:layout_marginTop="0dp"
-                android:text="Facebook" />
-        </RelativeLayout>
-    </android.support.v7.widget.CardView>
+    </RelativeLayout>
 
+    <Button
+        android:id="@+id/bt_signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Signup" />
 
 
 </RelativeLayout>

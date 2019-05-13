@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".searchListFragment">
+    tools:context=".searchListFragment"
+    android:background="@drawable/b">
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -16,55 +17,59 @@
 
         <SearchView
             android:layout_width="250dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:id="@+id/sr"
             android:hint="Enter Your Delicious Food "
+            android:backgroundTint="@android:color/white"
             ></SearchView>
 
         <Spinner
 
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:id="@+id/spinner"
             android:layout_toRightOf="@id/sr"
             android:text = "Select"
             android:gravity="center"
-            android:background="@android:color/holo_blue_dark"
+            android:backgroundTint="@android:color/white">
 
-            ></Spinner>
+        </Spinner>
 
         <RelativeLayout
 
+            android:id="@+id/Price_Limit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/Price_Limit"
             android:visibility="invisible">
 
             <EditText
+                android:id="@+id/Limit_Start"
                 android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
+                android:layout_height="50dp"
                 android:hint="Limit Start : "
-                android:id = "@+id/Limit_Start"
-                />
+                android:inputType="numberDecimal"
+                android:textColor="@android:color/white"
+                android:backgroundTint="@android:color/white"/>
 
             <EditText
 
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                android:layout_toRightOf="@id/Limit_Start"
                 android:id="@+id/Limit_End"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_toRightOf="@id/Limit_Start"
                 android:hint="Limit End"
-                />
+                android:inputType="numberDecimal"
+                android:textColor="@android:color/white"
+                android:backgroundTint="@android:color/white"/>
 
             <Button
+                android:id="@+id/Done"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="Done"
-                android:id="@+id/Done"
                 android:layout_below="@id/Limit_End"
-
+                android:text="Done"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
                 />
 
         </RelativeLayout>
@@ -75,6 +80,7 @@
             android:id="@+id/list_View"
             android:visibility="visible"
             android:layout_below="@id/Price_Limit"
+            android:layout_marginTop="10dp"
 
             >
 

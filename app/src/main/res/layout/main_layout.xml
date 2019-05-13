@@ -4,12 +4,41 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Haandi"
+        android:textSize="72dp"
+        android:layout_marginTop="125dp"
+        android:textAlignment="center"
+        android:textStyle="italic"
+        android:fontFamily="@font/eater"
+        android:textColor="@android:color/background_dark" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="230dp"
+        android:layout_marginRight="61dp"
+        android:fontFamily="@font/miniver"
+        android:text="Discover Delicious Food"
+        android:textColor="@android:color/background_dark"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:id="@+id/mnb"/>
+
+
     <ProgressBar
         android:id="@+id/pb_initial_loading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/mnb"
+        android:layout_marginTop="69dp"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"/>
+        android:backgroundTint="@color/cardview_dark_background" />
 
     <RelativeLayout
         android:id="@+id/rl_main_view"

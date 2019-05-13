@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/b">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="125dp"
+        android:fontFamily="@font/eater"
+        android:text="Haandi"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="72dp"
+        android:textStyle="italic" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="230dp"
+        android:layout_marginRight="61dp"
+        android:fontFamily="@font/miniver"
+        android:text="Discover Delicious Food"
+        android:textColor="@android:color/white"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="300dp"
+        android:fontFamily="@font/contrail_one"
+        android:text="If You Don't have an Account, Sign Up Below!"
+        android:textColor="@android:color/white"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:fontFamily="@font/contrail_one" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view"
+        android:id="@+id/rv-01"
+        >
+
+        <TextView
+            android:id="@+id/view_enter_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="10dp"
+            android:text="Please Enter Your Email"
+            android:textColor="@android:color/white"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/et_email_signup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/view_enter_city"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="10dp"
+            android:hint="Example@email.com"
+            android:layout_marginRight="50dp"
+            android:textColorHint="@android:color/white"
+            android:backgroundTint="@android:color/white"
+            android:textColor="@android:color/white"></EditText>
+
+
+        <TextView
+            android:id="@+id/tv_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/et_email_signup"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="43dp"
+            android:text="Please Enter Your Password"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:textSize="15dp"/>
+
+
+        <EditText
+            android:id="@+id/et_password_signup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/tv_password"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="10dp"
+            android:hint="Password"
+            android:layout_marginRight="50dp"
+            android:textColorHint="@android:color/white"
+            android:backgroundTint="@android:color/white"
+            android:textColor="@android:color/white"></EditText>
+
+        <Button
+            android:id="@+id/btn_signup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editText_login"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@android:color/white"
+            android:text="Sign UP" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

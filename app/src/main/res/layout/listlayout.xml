@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -13,6 +14,7 @@
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:id="@+id/image"
+            android:src="@drawable/nmj"
             />
 
 
@@ -21,6 +23,8 @@
             android:layout_height="60dp"
             android:id="@+id/dishname"
             android:layout_toRightOf="@+id/image"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
             />
 
 
@@ -29,6 +33,9 @@
             android:layout_height="60dp"
             android:id="@+id/dishResturant"
             android:layout_toRightOf="@id/dishname"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+
             />
 
         <TextView
@@ -36,6 +43,8 @@
             android:layout_height="60dp"
             android:id="@+id/disDiscription"
             android:layout_toRightOf="@+id/dishResturant"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
             />
 
         <TextView
@@ -43,6 +52,8 @@
             android:layout_height="60dp"
             android:id="@+id/dishPrice"
             android:layout_toRightOf="@+id/disDiscription"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
             />
 
 

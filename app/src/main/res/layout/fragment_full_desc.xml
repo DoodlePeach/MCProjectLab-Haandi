@@ -1,109 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fullDescFragment">
+    tools:context=".fullDescFragment"
+    android:background="@drawable/lpc">
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/dish_img"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:padding="5dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:src="@android:color/background_dark"/>
-
-        <TextView
-            android:id="@+id/dish_name"
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@id/dish_img"
-            android:layout_alignParentLeft="true"
-            android:layout_marginTop="255dp"
-            android:layout_marginLeft="5dp"
-            android:text="Dish Name"
-            android:textSize="25sp"/>
+            android:id="@+id/abc">
 
-        <TextView
-            android:id="@+id/dish_resturant"
+            <ImageView
+                android:id="@+id/dish_img"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:padding="5dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/nmj"/>
+
+            <TextView
+                android:id="@+id/dish_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/dish_img"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="223dp"
+                android:layout_marginLeft="5dp"
+                android:text="Dish Name"
+                android:textSize="25sp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:fontFamily="serif"/>
+
+            <TextView
+                android:id="@+id/dish_resturant"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+              android:layout_below="@id/dish_price"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:text="Resturant"
+                android:textSize="25sp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:fontFamily="serif"/>
+
+            <TextView
+                android:id="@+id/dish_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/dish_resturant"
+                android:layout_marginLeft="5dp"
+                android:text="Rating: "
+                android:textSize="25sp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:fontFamily="serif"/>
+
+            <TextView
+                android:id="@+id/dish_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="223dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="8dp"
+                android:text="PRICE"
+                android:textSize="25sp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:fontFamily="serif"/>
+
+            <RatingBar
+                android:id="@+id/ratingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/dish_resturant"
+                android:layout_marginRight="12dp"
+                android:layout_marginTop="10dp"/>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@id/dish_img"
-            android:layout_alignParentLeft="true"
-            android:layout_marginTop="300dp"
-            android:layout_marginLeft="5dp"
-            android:text="Resturant"
-            android:textSize="25sp"/>
-
-        <TextView
-            android:id="@+id/dish_rating"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@id/dish_img"
-            android:layout_alignParentLeft="true"
-            android:layout_marginTop="350dp"
-            android:layout_marginLeft="5dp"
-            android:text="Rating: "
-            android:textSize="25sp"/>
-
-        <TextView
-            android:id="@+id/dish_price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/ratingBar"
-            android:layout_alignRight="@+id/ratingBar"
-            android:layout_alignBottom="@id/dish_img"
-            android:layout_marginEnd="-7dp"
-            android:layout_marginRight="-7dp"
-            android:layout_marginBottom="-39dp"
-            android:text="PRICE"
-            android:textSize="25sp" />
-
-        <RatingBar
-            android:id="@+id/ratingBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/dish_img"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginTop="338dp"
-            android:layout_marginEnd="12dp"
-            android:layout_marginRight="12dp" />
+            android:layout_below="@id/abc"
+            android:layout_marginTop="20dp"
 
 
-    </RelativeLayout>
+         >
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="45dp">
+            <TextView
+                android:id="@+id/intrest_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="60dp"
+                android:text="You may be also be interested in..."
+                android:textColor="@android:color/white"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:fontFamily="casual" />
 
-        <TextView
-            android:id="@+id/intrest_txt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="5dp"
-            android:text="You may be also be interested in..."
-            android:textSize="20sp" />
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/intrest_txt"
+                android:layout_marginTop="15dp">
 
-        <android.support.v7.widget.RecyclerView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/intrest_txt"
-            android:layout_alignParentLeft="true"
-            android:layout_marginTop="40dp">
+            </ListView>
 
-        </android.support.v7.widget.RecyclerView>
 
-    </RelativeLayout>
+        </RelativeLayout>
 
-</FrameLayout>
+</RelativeLayout>

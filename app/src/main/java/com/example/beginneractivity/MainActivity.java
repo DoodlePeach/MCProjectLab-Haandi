@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.ProgressBar;
 
 import com.google.firebase.database.DataSnapshot;
@@ -17,12 +18,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 
 
 public class MainActivity extends AppCompatActivity implements  beginSearchFragment.OnFragmentInteractionListener,
                                                                 searchListFragment.OnFragmentInteractionListener,
-                                                                fullDescFragment.OnFragmentInteractionListener
+                                                                fullDescFragment.OnFragmentInteractionListener,
+                                                                LoginFragment.OnFragmentInteractionListener,
+                                                                signupFragment.OnSignupButtonClicked
 {
     ActionBar toolbar;
     FragmentManager fragmentManager;
@@ -34,6 +38,7 @@ public class MainActivity extends AppCompatActivity implements  beginSearchFragm
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.main_layout);
 
         ref = FirebaseDatabase.getInstance().getReference();
@@ -98,7 +103,11 @@ public class MainActivity extends AppCompatActivity implements  beginSearchFragm
 
                     case R.id.navigation_login:
                     {
-                        ///
+                        LoginFragment fragment = new LoginFragment();
+                        fragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
+
+                        fragmentTransaction.replace(R.id.frame_layout, fragment);
+                        fragmentTransaction.commit();
 
                         return true;
                     }
@@ -132,6 +141,7 @@ public class MainActivity extends AppCompatActivity implements  beginSearchFragm
         beginSearchFragment fragment = new beginSearchFragment();
         fragmentTransaction.add(R.id.frame_layout, fragment, "StartingFragment");
         fragmentTransaction.commit();
+
     }
 
     @Override
@@ -140,6 +150,16 @@ public class MainActivity extends AppCompatActivity implements  beginSearchFragm
         {
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             searchListFragment fragment = new searchListFragment();
+
+            fragmentTransaction.replace(R.id.frame_layout, fragment);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
+        }
+
+        else if(tag.equals("[LAUNCH] signupFragment"))
+        {
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            signupFragment fragment = new signupFragment();
 
             fragmentTransaction.replace(R.id.frame_layout, fragment);
             fragmentTransaction.addToBackStack(null);
@@ -177,7 +197,74 @@ public class MainActivity extends AppCompatActivity implements  beginSearchFragm
     public void notifyDatasetChanged()
     {
         beginSearchFragment fragment = (beginSearchFragment) fragmentManager.findFragmentByTag("StartingFragment");
-        fragment.refresh();
+
+        if(fragment != null)
+            fragment.refresh();
     }
 
+    @Override
+    public void onLoginButtonPressed(final User info, final OnTaskDone listner)
+    {
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot snap : dataSnapshot.child("accounts").getChildren())
+                {
+                    User toCheckUser = snap.getValue(User.class);
+
+                    if(toCheckUser.equals(info))
+                    {
+                        listner.takeRelevantActions(true);
+                        return;
+                    }
+                }
+
+                listner.takeRelevantActions(false);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                listner.connectionError();
+            }
+        });
+    }
+
+    @Override
+    public void onSignupButtonClicked(final User info, final OnTaskDone taskDone) {
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot snap : dataSnapshot.child("accounts").getChildren())
+                {
+                    User toCheck = snap.getValue(User.class);
+
+                    if(toCheck.equals(info))
+                    {
+                        taskDone.takeRelevantActions(true);
+                        return;
+                    }
+                }
+
+                taskDone.takeRelevantActions(false);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                    taskDone.connectionError();
+            }
+        });
+    }
+
+    @Override
+    public void makeUser(User info)
+    {
+        DatabaseReference accountsRef = ref.child("accounts");
+        DatabaseReference newAccount = accountsRef.push();
+        HashMap<String, String> hashOfInfo = new HashMap<>();
+        hashOfInfo.put("umail", info.getUmail());
+        hashOfInfo.put("upass", info.getUpass());
+        hashOfInfo.put("uname", "TBD");
+
+        newAccount.setValue(hashOfInfo);
+    }
 }
