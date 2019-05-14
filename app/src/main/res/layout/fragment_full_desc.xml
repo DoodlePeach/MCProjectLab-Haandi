@@ -19,8 +19,7 @@
                 android:layout_height="220dp"
                 android:padding="5dp"
                 android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:background="@drawable/nmj"/>
+                android:layout_alignParentTop="true"/>
 
             <TextView
                 android:id="@+id/dish_name"

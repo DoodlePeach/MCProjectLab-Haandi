@@ -21,8 +21,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/nmj" />
+            android:layout_marginTop="10dp"/>
 
         <TextView
             android:id="@+id/dish_name"

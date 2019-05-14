@@ -3,6 +3,7 @@ package com.example.beginneractivity;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,7 +47,7 @@ public class searchListFragment extends Fragment {
     ArrayList<String> dishResturant;
     ArrayList<String> dishPrice;
     ArrayList<String> dishDescription;
-    ArrayList<Integer> images;
+    ArrayList<String> images;
     ListViewAdapter all_adapter;
 
     ////////////////////////////////////
@@ -55,12 +56,12 @@ public class searchListFragment extends Fragment {
     ArrayList<String> less_dishResturant;
     ArrayList<String> less_dishPrice;
     ArrayList<String> less_dishDescription;
-    ArrayList<Integer> less_images;
+    ArrayList<String> less_images;
     ListViewAdapter less_adapter;
     ArrayList<Integer> positionchecker;
 
     RelativeLayout rl_price_limit;
-
+    Handler handler = new Handler();
     /////////////
 
     int saadVariable;
@@ -112,11 +113,11 @@ public class searchListFragment extends Fragment {
         dishResturant = new ArrayList<String>();
         dishPrice = new ArrayList<String>();
         dishDescription = new ArrayList<String>();
-        images = new ArrayList<Integer>( Arrays.asList(R.drawable.ic_launcher_background, R.drawable.ic_launcher_foreground));
+        images = new ArrayList<String>();
 
         set_Initial_Data(resList);
 
-        all_adapter = new ListViewAdapter(getContext(),images,dishName,dishResturant,dishDescription,dishPrice);
+        all_adapter = new ListViewAdapter(getContext(),images,dishName,dishResturant,dishDescription,dishPrice, handler);
         listView.setAdapter(all_adapter);
 
 
@@ -327,7 +328,7 @@ public class searchListFragment extends Fragment {
     {
         for(int i=0;i<list.size();i++) {
 
-            //images.add(list.get(i).imageSrc);
+            images.add(list.get(i).imageSrc);
             dishName.add(list.get(i).dishName);
             dishResturant.add(list.get(i).dishResturant);
             dishDescription.add(list.get(i).dishDescription);
@@ -338,7 +339,7 @@ public class searchListFragment extends Fragment {
 
     public void set_less_adapter()
     {
-        less_adapter = new ListViewAdapter(getContext(),less_images,less_dishName,less_dishResturant,less_dishDescription,less_dishPrice);
+        less_adapter = new ListViewAdapter(getContext(),less_images,less_dishName,less_dishResturant,less_dishDescription,less_dishPrice, handler);
         listView.setAdapter(less_adapter);
         // Use for Click on List and Match to the Original List Position
         current_list_check = 1 ;
@@ -352,7 +353,7 @@ public class searchListFragment extends Fragment {
         less_dishResturant = new ArrayList<String>();
         less_dishPrice = new ArrayList<String>();
         less_dishDescription= new ArrayList<String>();
-        less_images = new ArrayList<Integer>();
+        less_images = new ArrayList<String>();
         positionchecker = new ArrayList<Integer>();
 
     }

@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.LinkedList;
 
@@ -57,7 +60,7 @@ public class fullDescFragment extends Fragment {
         TextView dishResturant = v.findViewById(R.id.dish_resturant);
         RatingBar ratingBar = v.findViewById(R.id.ratingBar);
 
-        //imageView.setImageResource(currentItem.imageSrc);
+        Picasso.get().load(Uri.parse(currentItem.getImageSrc())).into(imageView);
         dishDesc.setText(currentItem.dishDescription);
         dishPrice.setText(currentItem.dishPrice + "$");
         dishResturant.setText(currentItem.dishResturant);
