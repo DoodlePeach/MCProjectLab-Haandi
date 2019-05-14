@@ -2,6 +2,7 @@ package com.example.beginneractivity;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,15 +11,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link signupFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link signupFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class signupFragment extends Fragment {
     private OnSignupButtonClicked mListener;
 
@@ -26,7 +18,7 @@ public class signupFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static signupFragment newInstance(String param1, String param2) {
+    public static signupFragment newInstance() {
         signupFragment fragment = new signupFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);

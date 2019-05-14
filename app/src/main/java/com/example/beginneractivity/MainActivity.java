@@ -168,10 +168,10 @@ public class MainActivity extends AppCompatActivity implements  beginSearchFragm
     }
 
     @Override
-    public void onFragmentInteractionWithItem(SearchItem item)
+    public void onFragmentInteractionWithItem(SearchItem item, LinkedList<SearchItem> allOfTheList)
     {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fullDescFragment fragment = fullDescFragment.newInstance(item);
+        fullDescFragment fragment = fullDescFragment.newInstance(item, allOfTheList);
 
         fragmentTransaction.replace(R.id.frame_layout, fragment);
         fragmentTransaction.addToBackStack(null);

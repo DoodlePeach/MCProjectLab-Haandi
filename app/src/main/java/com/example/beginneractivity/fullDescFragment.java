@@ -13,19 +13,23 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import java.util.LinkedList;
+
 public class fullDescFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
     private SearchItem currentItem;
+    private LinkedList <SearchItem> allOfTheItems;
 
     public fullDescFragment() {
         // Required empty public constructor
     }
 
-    public static fullDescFragment newInstance(SearchItem item) {
+    public static fullDescFragment newInstance(SearchItem item, LinkedList<SearchItem> allOfTheItems) {
         fullDescFragment fragment = new fullDescFragment();
 
         Bundle args = new Bundle();
-        args.putSerializable("args", item);
+        args.putSerializable("selectedItem", item);
+        args.putSerializable("fullList", allOfTheItems);
         fragment.setArguments(args);
 
         return fragment;
@@ -36,7 +40,8 @@ public class fullDescFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         Bundle arguments = getArguments();
-        currentItem = (SearchItem) arguments.getSerializable("args");
+        currentItem = (SearchItem) arguments.getSerializable("selectedItem");
+        allOfTheItems = (LinkedList<SearchItem>) arguments.getSerializable("fullList");
     }
 
     @Override
@@ -52,7 +57,7 @@ public class fullDescFragment extends Fragment {
         TextView dishResturant = v.findViewById(R.id.dish_resturant);
         RatingBar ratingBar = v.findViewById(R.id.ratingBar);
 
-        imageView.setImageResource(currentItem.imageSrc);
+        //imageView.setImageResource(currentItem.imageSrc);
         dishDesc.setText(currentItem.dishDescription);
         dishPrice.setText(currentItem.dishPrice + "$");
         dishResturant.setText(currentItem.dishResturant);

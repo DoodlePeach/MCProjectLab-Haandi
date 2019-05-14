@@ -1,63 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
-    <RelativeLayout
+    <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary">
+        android:layout_margin="5dp">
 
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="50dp"
-            android:id="@+id/image"
-            android:src="@drawable/nmj"
-            />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/sbv">
 
-
-        <TextView
-            android:layout_width="50dp"
-            android:layout_height="60dp"
-            android:id="@+id/dishname"
-            android:layout_toRightOf="@+id/image"
-            android:textStyle="bold"
-            android:textColor="@android:color/white"
-            />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:id="@+id/image"
+                android:src="@drawable/nmj" />
 
 
-        <TextView
-            android:layout_width="50dp"
-            android:layout_height="60dp"
-            android:id="@+id/dishResturant"
-            android:layout_toRightOf="@id/dishname"
-            android:textStyle="bold"
-            android:textColor="@android:color/white"
-
-            />
-
-        <TextView
-            android:layout_width="50dp"
-            android:layout_height="60dp"
-            android:id="@+id/disDiscription"
-            android:layout_toRightOf="@+id/dishResturant"
-            android:textStyle="bold"
-            android:textColor="@android:color/white"
-            />
-
-        <TextView
-            android:layout_width="50dp"
-            android:layout_height="60dp"
-            android:id="@+id/dishPrice"
-            android:layout_toRightOf="@+id/disDiscription"
-            android:textStyle="bold"
-            android:textColor="@android:color/white"
-            />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/dishname"
+                android:layout_below="@+id/image"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                />
 
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/dishResturant"
+                android:layout_below="@+id/image"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/dishname"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
 
-    </RelativeLayout>
+                />
 
-</LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/disDiscription"
+                android:layout_below="@+id/dishname"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/dishPrice"
+                android:layout_below="@+id/image"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white" />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</RelativeLayout>

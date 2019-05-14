@@ -101,18 +101,18 @@ public class searchListFragment extends Fragment {
         listView = v.findViewById(R.id.list_View);
         searchView = v.findViewById(R.id.sr);
         spinner = v.findViewById(R.id.spinner);
-        rl_price_limit = v.findViewById(R.id.Price_Limit);;
+        rl_price_limit = v.findViewById(R.id.Price_Limit);
 
 
         String [] spinnerlist = {"Name","Resturant","Price"};
-        spinner_adapter = new ArrayAdapter<String>(getContext(),android.R.layout.simple_spinner_dropdown_item,spinnerlist);
+        spinner_adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, spinnerlist);
         spinner.setAdapter(spinner_adapter);
 
         dishName = new ArrayList<String>();
         dishResturant = new ArrayList<String>();
         dishPrice = new ArrayList<String>();
         dishDescription = new ArrayList<String>();
-        images = new ArrayList<Integer>( Arrays.asList(R.drawable.ic_launcher_background,R.drawable.ic_launcher_foreground));
+        images = new ArrayList<Integer>( Arrays.asList(R.drawable.ic_launcher_background, R.drawable.ic_launcher_foreground));
 
         set_Initial_Data(resList);
 
@@ -129,7 +129,7 @@ public class searchListFragment extends Fragment {
                 else if(current_list_check==1)
                     saadVariable = positionchecker.get(i);
 
-                onButtonPressed(resList.get(saadVariable));
+                onButtonPressed(resList.get(saadVariable), resList);
 
             }
         });
@@ -209,9 +209,9 @@ public class searchListFragment extends Fragment {
         }
     }
 
-    public void onButtonPressed(SearchItem item) {
+    public void onButtonPressed(SearchItem item, LinkedList<SearchItem> fullItems) {
         if (mListener != null) {
-            mListener.onFragmentInteractionWithItem(item);
+            mListener.onFragmentInteractionWithItem(item, fullItems);
         }
     }
 
@@ -234,7 +234,7 @@ public class searchListFragment extends Fragment {
 
     public interface OnFragmentInteractionListener {
         void onFragmentChange(String tag, Uri uri);
-        void onFragmentInteractionWithItem(SearchItem item);
+        void onFragmentInteractionWithItem(SearchItem item, LinkedList<SearchItem> fullItems);
     }
 
     public void setOnFragmentInteractionListner(OnFragmentInteractionListener listener)
@@ -327,7 +327,7 @@ public class searchListFragment extends Fragment {
     {
         for(int i=0;i<list.size();i++) {
 
-            images.add(list.get(i).imageSrc);
+            //images.add(list.get(i).imageSrc);
             dishName.add(list.get(i).dishName);
             dishResturant.add(list.get(i).dishResturant);
             dishDescription.add(list.get(i).dishDescription);

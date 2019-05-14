@@ -8,13 +8,13 @@ public class SearchItem implements Serializable {
     public String dishResturant;
     public String resturantLocation;
     public String dishCat;
-    public int imageSrc;
+    public String imageSrc;
     public Integer dishPrice;
 
 
     public SearchItem() {}
 
-    public SearchItem(String dishName, String dishDescription, String dishResturant, String resturantLocation, String dishCat, int imageSrc, Integer dishPrice) {
+    public SearchItem(String dishName, String dishDescription, String dishResturant, String resturantLocation, String dishCat, String imageSrc, Integer dishPrice) {
         this.dishName = dishName;
         this.dishDescription = dishDescription;
         this.dishResturant = dishResturant;
@@ -57,11 +57,11 @@ public class SearchItem implements Serializable {
         this.dishCat = dishCat;
     }
 
-    public int getImageSrc() {
+    public String getImageSrc() {
         return imageSrc;
     }
 
-    public void setImageSrc(int imageSrc) {
+    public void setImageSrc(String imageSrc) {
         this.imageSrc = imageSrc;
     }
 
