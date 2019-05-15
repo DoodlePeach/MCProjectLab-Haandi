@@ -5,22 +5,40 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class descFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
     private SearchItem currentItem;
-    private LinkedList <SearchItem> allOfTheItems;
+    private LinkedList<SearchItem> allOfTheItems;
+
+    private Suggetions_List_Adapter adapter;
+    Handler handler = new Handler();
+    ListView pref;
+
+    int saad_suggest_varaible;
+
+    ArrayList<String> dishName = new ArrayList<String>();
+    ArrayList<String> dishResturants = new ArrayList<String>();
+    ArrayList<String> dishPrices = new ArrayList<String>();
+    ArrayList<String> dishDescription = new ArrayList<String>();
+    ArrayList<String> images = new ArrayList<String>();
+
 
     public descFragment() {
         // Required empty public constructor
@@ -44,6 +62,9 @@ public class descFragment extends Fragment {
         Bundle arguments = getArguments();
         currentItem = (SearchItem) arguments.getSerializable("selectedItem");
         allOfTheItems = (LinkedList<SearchItem>) arguments.getSerializable("fullList");
+        Take_Adapter_And_Set_Preference_list();
+
+
     }
 
     @Override
@@ -66,12 +87,24 @@ public class descFragment extends Fragment {
         Drawable stars = ratingBar.getProgressDrawable();
         stars.setTint(Color.WHITE);
 
+        pref = v.findViewById(R.id.list_pref);
+
+        adapter = new Suggetions_List_Adapter(getContext(), images, dishName, dishResturants, dishDescription, dishPrices, handler);
+        pref.setAdapter(adapter);
+
+        pref.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                mListener.onFragmentInteraction(allOfTheItems.get(i), allOfTheItems);
+            }
+        });
+
+
         return v;
     }
 
     public void onButtonPressed(String tag, Uri uri) {
         if (mListener != null) {
-            mListener.onFragmentInteraction(tag, uri);
         }
     }
 
@@ -93,6 +126,19 @@ public class descFragment extends Fragment {
     }
 
     public interface OnFragmentInteractionListener {
-        void onFragmentInteraction(String tag, Uri uri);
+        void onFragmentInteraction(SearchItem item, LinkedList<SearchItem> items);
+    }
+
+
+
+    public void Take_Adapter_And_Set_Preference_list() {
+        for (int i = 0; i < allOfTheItems.size(); i++) {
+            dishName.add(allOfTheItems.get(i).dishName);
+            dishResturants.add(allOfTheItems.get(i).dishResturant);
+            dishPrices.add(allOfTheItems.get(i).dishPrice.toString());
+            dishDescription.add(allOfTheItems.get(i).dishDescription);
+            images.add(allOfTheItems.get(i).imageSrc);
+        }
+
     }
 }

@@ -170,6 +170,17 @@ public class MainActivity extends AppCompatActivity implements  searchFragment.O
     }
 
     @Override
+    public void onFragmentInteraction(SearchItem item, LinkedList<SearchItem> items)
+    {
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        descFragment fragment = descFragment.newInstance(item, items);
+
+        fragmentTransaction.replace(R.id.frame_layout, fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+    }
+
+    @Override
     public void onFragmentInteractionWithItem(SearchItem item, LinkedList<SearchItem> allOfTheList)
     {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -188,12 +199,6 @@ public class MainActivity extends AppCompatActivity implements  searchFragment.O
         fragmentTransaction.replace(R.id.frame_layout, fragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
-    }
-
-    @Override
-    public void onFragmentInteraction(String tag, Uri uri)
-    {
-        ///;
     }
 
     public void notifyDatasetChanged()
@@ -252,7 +257,7 @@ public class MainActivity extends AppCompatActivity implements  searchFragment.O
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                    taskDone.connectionError();
+                     taskDone.connectionError();
             }
         });
     }
@@ -285,8 +290,6 @@ public class MainActivity extends AppCompatActivity implements  searchFragment.O
                     {
                         DatabaseReference refOfDesiredChild = ref.child("accounts").child(snap.getKey()).child("promos");
 
-
-
                         break;
                     }
                 }
@@ -297,5 +300,7 @@ public class MainActivity extends AppCompatActivity implements  searchFragment.O
 
             }
         });
+
+        return promos;
     }
 }

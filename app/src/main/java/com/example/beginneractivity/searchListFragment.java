@@ -38,6 +38,9 @@ public class searchListFragment extends Fragment {
     ListView listView;
     SearchView searchView;
     Spinner spinner;
+    LinkedList<SearchItem> pass_Preferences;
+    LinkedList<SearchItem> comes_from_saad;
+
 
     ArrayAdapter<String> spinner_adapter;
 
@@ -125,12 +128,23 @@ public class searchListFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-                if(current_list_check==0)
-                    saadVariable = i ;
+
+                if(current_list_check==0) {
+                    saadVariable = i;
+                    pass_Preferences = new LinkedList<SearchItem>();
+
+                    for(int j=0;j<comes_from_saad.size();j++)
+                    {
+                        pass_Preferences.add(comes_from_saad.get(j));
+                    }
+
+                }
                 else if(current_list_check==1)
                     saadVariable = positionchecker.get(i);
 
-                onButtonPressed(resList.get(saadVariable), resList);
+                onButtonPressed(resList.get(saadVariable), pass_Preferences);
+
+
 
             }
         });
@@ -319,13 +333,15 @@ public class searchListFragment extends Fragment {
         less_dishDescription.add(dishDescription.get(i));
         less_images.add(images.get(i));
         positionchecker.add(i);
+        pass_Preferences.add(comes_from_saad.get(i));
 
     }
 
     // Initialize Your Data
 
-    public void set_Initial_Data(LinkedList<SearchItem>list)
+    public void set_Initial_Data(LinkedList<SearchItem>list)  //       *********************************Doubt may be
     {
+        comes_from_saad = new LinkedList<SearchItem>();
         for(int i=0;i<list.size();i++) {
 
             images.add(list.get(i).imageSrc);
@@ -333,10 +349,10 @@ public class searchListFragment extends Fragment {
             dishResturant.add(list.get(i).dishResturant);
             dishDescription.add(list.get(i).dishDescription);
             dishPrice.add(Integer.toString(list.get(i).dishPrice));
+            comes_from_saad.add(list.get(i));
 
         }
     }
-
     public void set_less_adapter()
     {
         less_adapter = new ListViewAdapter(getContext(),less_images,less_dishName,less_dishResturant,less_dishDescription,less_dishPrice, handler);
@@ -355,6 +371,6 @@ public class searchListFragment extends Fragment {
         less_dishDescription= new ArrayList<String>();
         less_images = new ArrayList<String>();
         positionchecker = new ArrayList<Integer>();
+        pass_Preferences = new LinkedList<SearchItem>();
 
-    }
-}
+    }}

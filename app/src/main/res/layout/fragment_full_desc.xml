@@ -109,14 +109,21 @@
                 android:textStyle="bold"
                 app:fontFamily="casual" />
 
-            <ListView
-                android:layout_width="match_parent"
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/intrest_txt"
-                android:layout_marginTop="15dp">
+                android:layout_marginTop="15dp"
+                android:id="@+id/list_pref">
 
-            </ListView>
 
+                
+                <ListView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbarAlwaysDrawHorizontalTrack="true"
+                    />
+            </HorizontalScrollView>
 
         </RelativeLayout>
 
