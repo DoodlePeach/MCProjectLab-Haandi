@@ -16,17 +16,19 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
 import java.util.LinkedList;
 
 
-public class MainActivity extends AppCompatActivity implements  beginSearchFragment.OnFragmentInteractionListener,
+public class MainActivity extends AppCompatActivity implements  searchFragment.OnFragmentInteractionListener,
                                                                 searchListFragment.OnFragmentInteractionListener,
-                                                                fullDescFragment.OnFragmentInteractionListener,
+                                                                descFragment.OnFragmentInteractionListener,
                                                                 LoginFragment.OnFragmentInteractionListener,
-                                                                signupFragment.OnSignupButtonClicked
+                                                                signupFragment.OnSignupButtonClicked,
+                                                                promosFragment.OnUserDemandPromos
 {
     ActionBar toolbar;
     FragmentManager fragmentManager;
@@ -92,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements  beginSearchFragm
                 {
                     case R.id.navigation_search:
                     {
-                        beginSearchFragment fragment = new beginSearchFragment();
+                        searchFragment fragment = new searchFragment();
                         fragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
                         fragmentTransaction.replace(R.id.frame_layout, fragment, "StartingFragment");
@@ -138,7 +140,7 @@ public class MainActivity extends AppCompatActivity implements  beginSearchFragm
         fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-        beginSearchFragment fragment = new beginSearchFragment();
+        searchFragment fragment = new searchFragment();
         fragmentTransaction.add(R.id.frame_layout, fragment, "StartingFragment");
         fragmentTransaction.commit();
 
@@ -171,7 +173,7 @@ public class MainActivity extends AppCompatActivity implements  beginSearchFragm
     public void onFragmentInteractionWithItem(SearchItem item, LinkedList<SearchItem> allOfTheList)
     {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fullDescFragment fragment = fullDescFragment.newInstance(item, allOfTheList);
+        descFragment fragment = descFragment.newInstance(item, allOfTheList);
 
         fragmentTransaction.replace(R.id.frame_layout, fragment);
         fragmentTransaction.addToBackStack(null);
@@ -196,7 +198,7 @@ public class MainActivity extends AppCompatActivity implements  beginSearchFragm
 
     public void notifyDatasetChanged()
     {
-        beginSearchFragment fragment = (beginSearchFragment) fragmentManager.findFragmentByTag("StartingFragment");
+        searchFragment fragment = (searchFragment) fragmentManager.findFragmentByTag("StartingFragment");
 
         if(fragment != null)
             fragment.refresh();
@@ -266,5 +268,34 @@ public class MainActivity extends AppCompatActivity implements  beginSearchFragm
         hashOfInfo.put("uname", "TBD");
 
         newAccount.setValue(hashOfInfo);
+    }
+
+    public LinkedList<Promos> onDemandedListFetched(final User user)
+    {
+        LinkedList<Promos> promos = new LinkedList<>();
+
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot snap : dataSnapshot.getChildren())
+                {
+                    User tempUser = snap.getValue(User.class);
+
+                    if(tempUser.equals(user))
+                    {
+                        DatabaseReference refOfDesiredChild = ref.child("accounts").child(snap.getKey()).child("promos");
+
+
+
+                        break;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 }

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".promosFragment">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/tv_text_logged_in"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:text="Currently logged in: "/>
+
+        <TextView
+            android:id="@+id/tv_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/tv_text_logged_in"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dp"/>
+
+        <ListView
+            android:id="@+id/lv_promos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/tv_text_logged_in"
+            android:layout_marginTop="5dp">
+
+        </ListView>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_no_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="There is no user currently logged in."
+        android:visibility="invisible"/>
+
+</FrameLayout>

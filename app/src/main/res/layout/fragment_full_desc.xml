@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fullDescFragment"
+    tools:context=".descFragment"
     android:background="@drawable/lpc">
-
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -17,7 +16,6 @@
                 android:id="@+id/dish_img"
                 android:layout_width="match_parent"
                 android:layout_height="220dp"
-                android:padding="5dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"/>
 

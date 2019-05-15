@@ -65,7 +65,7 @@ public class ListViewAdapter extends BaseAdapter {
         TextView description = item_view.findViewById(R.id.disDiscription);
         TextView price = item_view.findViewById(R.id.dishPrice);
 
-        Picasso.get().load(Uri.parse(image.get(i))).into(imageView);
+        Picasso.get().load(Uri.parse(image.get(i))).fit().into(imageView);
         name.setText(dishName.get(i));
         resturant.setText(dishResturant.get(i));
         description.setText(dishDescription.get(i));
