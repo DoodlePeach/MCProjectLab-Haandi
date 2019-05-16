@@ -3,6 +3,7 @@ package com.example.mclabproject;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,13 +12,12 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.database.annotations.NotNull;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class Suggestions_List_Adapter extends BaseAdapter {
-
-
+public class Suggestions_List_Adapter extends RecyclerView.Adapter<Suggestions_List_Adapter.CustomViewHolder> {
     Context context;
 
     ArrayList<String> dishName;
@@ -26,6 +26,20 @@ public class Suggestions_List_Adapter extends BaseAdapter {
     ArrayList<String> dishDescription;
     ArrayList<String>image;
     LayoutInflater inflater;
+
+    public static class CustomViewHolder extends RecyclerView.ViewHolder{
+        public ImageView img;
+        public TextView name, resturant, price;
+
+        public CustomViewHolder(View v)
+        {
+            super(v);
+            img = v.findViewById(R.id.image);
+            this.name = v.findViewById(R.id.dishname);
+            this.resturant = v.findViewById(R.id.dishResturant);
+            this.price = v.findViewById(R.id.dishPrice);
+        }
+    }
 
     public Suggestions_List_Adapter(Context a, ArrayList<String>imageViews , ArrayList<String> dishName, ArrayList<String> dishResturant,
                              ArrayList<String>dishDescription, ArrayList<String> dishPrice, Handler handler)
@@ -39,38 +53,29 @@ public class Suggestions_List_Adapter extends BaseAdapter {
         this.image = imageViews;
     }
 
-    public int getCount()
-    {
-        return dishName.size();
+    @Override
+    public Suggestions_List_Adapter.CustomViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+
+        View v =  layoutInflater.inflate(R.layout.suggestion_list_layout, parent, false);
+
+        return new CustomViewHolder(v);
     }
 
-    public Object getItem(int abc)
-    {
-        return null;
+    @Override
+    public void onBindViewHolder(@NotNull CustomViewHolder holder, int position) {
+        holder.name.setText(dishName.get(position));
+        holder.resturant.setText(dishResturant.get(position));
+        holder.price.setText(dishPrice.get(position));
+        Picasso.get().load(Uri.parse(image.get(position))).fit().into(holder.img);
     }
+
+    @Override
+    public int getItemCount() {return dishName.size();}
 
     public long getItemId(int i) {
         return 0;
     }
-
-    public View getView(final int i, View view, ViewGroup viewGroup) {
-        inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-        View item_view = inflater.inflate(R.layout.suggestion_list_layout,viewGroup,false);
-
-        final ImageView imageView = item_view.findViewById(R.id.image);
-        TextView name = item_view.findViewById(R.id.dishname);
-        TextView resturant = item_view.findViewById(R.id.dishResturant);
-        TextView price = item_view.findViewById(R.id.dishPrice);
-
-        Picasso.get().load(Uri.parse(image.get(i))).fit().into(imageView);
-        name.setText(dishName.get(i));
-        resturant.setText(dishResturant.get(i));
-        price.setText("$"+dishPrice.get(i));
-
-        return item_view;
-    }
-
 
 
 }

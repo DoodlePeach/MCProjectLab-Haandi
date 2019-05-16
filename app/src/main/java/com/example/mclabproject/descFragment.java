@@ -4,8 +4,13 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutCompat;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -26,7 +31,7 @@ public class descFragment extends Fragment {
 
     private Suggestions_List_Adapter adapter;
     Handler handler = new Handler();
-    ListView pref ;
+    RecyclerView pref ;
 
     int saad_suggest_varaible;
 
@@ -68,6 +73,8 @@ public class descFragment extends Fragment {
         View v = container;
         v = inflater.inflate(R.layout.fragment_full_desc, container, false);
 
+        LinearLayoutManager manager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+
         ImageView imageView = v.findViewById(R.id.dish_img);
         TextView dishDesc = v.findViewById(R.id.dish_name);
         TextView dishPrice = v.findViewById(R.id.dish_price);
@@ -80,16 +87,9 @@ public class descFragment extends Fragment {
         dishResturant.setText(currentItem.dishResturant);
 
         pref = v.findViewById(R.id.list_pref);
+        pref.setLayoutManager(manager);
         adapter = new Suggestions_List_Adapter(getContext(),images,dishName,dishResturants,dishDescription,dishPrices, handler);
         pref.setAdapter(adapter);
-
-        pref.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                mListener.onFragmentInteraction(allOfTheItems.get(i), allOfTheItems);
-            }
-        });
-
 
         return v;
     }
