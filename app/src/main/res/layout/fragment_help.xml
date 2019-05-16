@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".signupFragment"
+    android:background="@drawable/b">
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/eater"
+        android:textStyle="italic"
+        android:textAlignment="center"
+        android:layout_marginTop="35dp"
+        android:textSize="72dp"
+        android:text="Help!"
+        android:id="@+id/fir"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/fir"
+        android:layout_marginRight="51dp"
+        android:fontFamily="@font/miniver"
+        android:text="Feel Free To Contact Us"
+        android:textColor="@android:color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:id="@+id/feel"
+        android:layout_marginTop="-25dp"/>
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/aclonica"
+        android:textStyle="bold"
+        android:layout_marginTop="50dp"
+        android:textSize="20dp"
+        android:text=">> Email/Phone No:"
+        android:layout_below="@+id/feel"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/mail"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mail"
+        android:layout_marginTop="10dp"
+        android:fontFamily="serif"
+        android:text="UmerFarooqapp@gmail.com"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="17dp"
+        android:id="@+id/um"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold|italic"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/um"
+        android:fontFamily="serif"
+        android:text="+923159120003"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="17dp"
+        android:textStyle="bold|italic"
+        android:id="@+id/num"
+        android:layout_centerHorizontal="true"
+        />
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/aclonica"
+        android:textStyle="bold"
+        android:layout_below="@+id/num"
+        android:layout_marginTop="10dp"
+        android:textSize="20dp"
+        android:text=">> General Purpose of This App:"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/pur"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pur"
+        android:layout_marginTop="10dp"
+        android:fontFamily="serif"
+        android:text="Majority Students is livings in Hostels and They don't Find the Better Place To Eat.So Here We Presents The Formula Number One To Decide How To Eat Best Food Also With Less Money.   "
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="17dp"
+        android:id="@+id/des"
+        android:textStyle="bold|italic"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="45dp"
+        />
+
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textColor="@android:color/white"
+        android:fontFamily="@font/aclonica"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:textSize="20dp"
+        android:text=">> FAQ:"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"
+        android:id="@+id/faq"
+        android:layout_below="@id/des"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/faq"
+        android:layout_marginTop="10dp"
+        android:fontFamily="serif"
+        android:text="Rate us At Google Play store Also"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="17dp"
+        android:textStyle="bold|italic"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>

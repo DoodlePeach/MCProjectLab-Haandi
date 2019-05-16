@@ -15,71 +15,47 @@
         android:orientation="vertical">
 
 
-        <SearchView
+        <android.support.v7.widget.CardView
             android:layout_width="250dp"
             android:layout_height="50dp"
+            android:layout_margin="5dp"
+            app:cardCornerRadius="5dp"
+            android:id="@+id/cv_search_view">
+        <SearchView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:id="@+id/sr"
             android:hint="Enter Your Delicious Food "
-            android:backgroundTint="@android:color/white"
-            ></SearchView>
+            android:background="#ffffff" />
+        </android.support.v7.widget.CardView>
 
-        <Spinner
 
+        <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:id="@+id/spinner"
-            android:layout_toRightOf="@id/sr"
-            android:text = "Select"
-            android:gravity="center"
-            android:backgroundTint="@android:color/white">
+            android:layout_toRightOf="@+id/cv_search_view"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="5dp"
+            app:cardCornerRadius="5dp">
 
-        </Spinner>
-
-        <RelativeLayout
-
-            android:id="@+id/Price_Limit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="invisible">
-
-            <EditText
-                android:id="@+id/Limit_Start"
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:hint="Limit Start : "
-                android:inputType="numberDecimal"
-                android:textColor="@android:color/white"
-                android:backgroundTint="@android:color/white"/>
-
-            <EditText
-
-                android:id="@+id/Limit_End"
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:layout_toRightOf="@id/Limit_Start"
-                android:hint="Limit End"
-                android:inputType="numberDecimal"
-                android:textColor="@android:color/white"
-                android:backgroundTint="@android:color/white"/>
-
-            <Button
-                android:id="@+id/Done"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/Limit_End"
-                android:text="Done"
-                android:textStyle="bold"
-                android:textColor="@android:color/white"
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/spinner"
+                android:text = "Select"
+                android:gravity="center"
                 />
 
-        </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
 
         <ListView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/list_View"
             android:visibility="visible"
-            android:layout_below="@id/Price_Limit"
+            android:layout_below="@id/cv_search_view"
             android:layout_marginTop="10dp"
 
             >

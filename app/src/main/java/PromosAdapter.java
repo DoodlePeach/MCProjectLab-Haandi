@@ -7,8 +7,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.beginneractivity.Promos;
-import com.example.beginneractivity.R;
+import com.example.mclabproject.Promos;
+import com.example.mclabproject.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.LinkedList;

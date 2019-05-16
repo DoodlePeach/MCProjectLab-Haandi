@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".descFragment"
+    android:background="@drawable/lpc">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/abc">
+
+            <ImageView
+                android:id="@+id/dish_img"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"/>
+
+            <TextView
+                android:id="@+id/dish_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/dish_img"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="223dp"
+                android:layout_marginLeft="5dp"
+                android:text="Dish Name"
+                android:textSize="25sp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:fontFamily="serif"/>
+
+            <TextView
+                android:id="@+id/dish_resturant"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+              android:layout_below="@id/dish_price"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:text="Resturant"
+                android:textSize="25sp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:fontFamily="serif"/>
+
+            <TextView
+                android:id="@+id/dish_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/dish_resturant"
+                android:layout_marginLeft="5dp"
+                android:text="Rating: "
+                android:textSize="25sp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:fontFamily="serif"/>
+
+            <TextView
+                android:id="@+id/dish_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="223dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="8dp"
+                android:text="PRICE"
+                android:textSize="25sp"
+                android:textColor="@android:color/white"
+                android:textStyle="bold"
+                android:fontFamily="serif"/>
+
+            <RatingBar
+                android:id="@+id/ratingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/dish_resturant"
+                android:layout_marginRight="12dp"
+                android:layout_marginTop="10dp"/>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/abc"
+            android:layout_marginTop="20dp"
+
+
+         >
+
+            <TextView
+                android:id="@+id/intrest_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="60dp"
+                android:text="You may be also be interested in..."
+                android:textColor="@android:color/white"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:fontFamily="casual" />
+
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/intrest_txt"
+                android:layout_marginTop="15dp"
+                android:id="@+id/list_pref"
+                android:scrollbarAlwaysDrawHorizontalTrack="true"
+                >
+
+                
+                <ListView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbarAlwaysDrawHorizontalTrack="true"
+                    />
+            </HorizontalScrollView>
+
+        </RelativeLayout>
+
+</RelativeLayout>

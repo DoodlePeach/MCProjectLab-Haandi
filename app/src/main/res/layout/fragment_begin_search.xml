@@ -14,21 +14,20 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="125dp"
-            android:fontFamily="@font/eater"
             android:text="Haandi"
+            android:textSize="72dp"
+            android:layout_marginTop="80dp"
             android:textAlignment="center"
-            android:textColor="@android:color/white"
-            android:textSize="60dp"
             android:textStyle="italic"
-            app:fontFamily="@font/eater" />
+            android:fontFamily="@font/eater"
+            android:textColor="@android:color/white" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="230dp"
+            android:layout_marginTop="185dp"
             android:layout_marginRight="61dp"
             android:fontFamily="@font/miniver"
             android:text="Discover Delicious Food"
@@ -36,12 +35,11 @@
             android:textSize="20dp"
             android:textStyle="bold" />
 
-
         <RelativeLayout
             android:id="@+id/search_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="300dp">
+            android:layout_marginTop="255dp">
 
 
             <TextView
@@ -68,7 +66,7 @@
                 android:layout_marginTop="25dp"
                 android:layout_marginRight="50dp"
                 android:textColor="@android:color/white"
-                ></Spinner>
+                />
 
             <TextView
                 android:id="@+id/view_perferred_cusine"

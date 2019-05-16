@@ -7,7 +7,8 @@
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@drawable/b">
 
 
         <TextView
@@ -17,6 +18,18 @@
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
+            android:text="Currently logged in: "
+            android:textColor="@color/cardview_light_background"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/tv_text_logged_in"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="5dp"
+            android:id="@+id/tv_username"
+            android:textColor="@color/cardview_light_background"
+            android:textSize="20dp"/>
             android:text="Currently logged in: "/>
 
         <TextView
@@ -26,14 +39,15 @@
             android:layout_toRightOf="@+id/tv_text_logged_in"
             android:layout_alignParentRight="true"
             android:layout_marginRight="5dp"/>
-
         <ListView
             android:id="@+id/lv_promos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/tv_text_logged_in"
+            android:layout_marginTop="30dp"
+            android:clickable="false">
             android:layout_alignBaseline="@+id/tv_text_logged_in"
             android:layout_marginTop="5dp">
-
         </ListView>
     </RelativeLayout>
 
@@ -42,6 +56,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="There is no user currently logged in."
+        android:visibility="invisible"
+        android:textColor="@color/cardview_light_background"/>
         android:visibility="invisible"/>
 
 </FrameLayout>
