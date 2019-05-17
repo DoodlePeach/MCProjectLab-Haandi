@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Handler;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,8 +27,9 @@ public class Suggestions_List_Adapter extends RecyclerView.Adapter<Suggestions_L
     ArrayList<String> dishDescription;
     ArrayList<String>image;
     LayoutInflater inflater;
+    descFragment.RecyclerItemClick itemClickListener;
 
-    public static class CustomViewHolder extends RecyclerView.ViewHolder{
+    public class CustomViewHolder extends RecyclerView.ViewHolder{
         public ImageView img;
         public TextView name, resturant, price;
 
@@ -36,13 +38,18 @@ public class Suggestions_List_Adapter extends RecyclerView.Adapter<Suggestions_L
             super(v);
             img = v.findViewById(R.id.image);
             this.name = v.findViewById(R.id.dishname);
-            this.resturant = v.findViewById(R.id.dishResturant);
             this.price = v.findViewById(R.id.dishPrice);
+            (v.findViewById(R.id.cv_suggestion_list)).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    itemClickListener.OnItemClickListener(getAdapterPosition());
+                }
+            });
         }
     }
 
     public Suggestions_List_Adapter(Context a, ArrayList<String>imageViews , ArrayList<String> dishName, ArrayList<String> dishResturant,
-                             ArrayList<String>dishDescription, ArrayList<String> dishPrice, Handler handler)
+                                    ArrayList<String>dishDescription, ArrayList<String> dishPrice, descFragment.RecyclerItemClick itemClickListener)
     {
         this.context = a ;
 
@@ -51,6 +58,7 @@ public class Suggestions_List_Adapter extends RecyclerView.Adapter<Suggestions_L
         this.dishPrice = dishPrice;
         this.dishDescription=dishDescription;
         this.image = imageViews;
+        this.itemClickListener = itemClickListener;
     }
 
     @Override
@@ -65,8 +73,7 @@ public class Suggestions_List_Adapter extends RecyclerView.Adapter<Suggestions_L
     @Override
     public void onBindViewHolder(@NotNull CustomViewHolder holder, int position) {
         holder.name.setText(dishName.get(position));
-        holder.resturant.setText(dishResturant.get(position));
-        holder.price.setText(dishPrice.get(position));
+        holder.price.setText(dishPrice.get(position) + "$");
         Picasso.get().load(Uri.parse(image.get(position))).fit().into(holder.img);
     }
 

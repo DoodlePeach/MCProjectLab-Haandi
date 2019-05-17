@@ -41,7 +41,6 @@ public class descFragment extends Fragment {
     ArrayList<String> dishDescription = new ArrayList<String>();
     ArrayList<String> images = new ArrayList<String>();
 
-
     public descFragment() {
         // Required empty public constructor
     }
@@ -74,6 +73,13 @@ public class descFragment extends Fragment {
         v = inflater.inflate(R.layout.fragment_full_desc, container, false);
 
         LinearLayoutManager manager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        RecyclerItemClick recyclerItemClick = new RecyclerItemClick() {
+            @Override
+            public void OnItemClickListener(int position) {
+                mListener.onFragmentInteraction(allOfTheItems.get(position), allOfTheItems);
+            }
+        };
+
 
         ImageView imageView = v.findViewById(R.id.dish_img);
         TextView dishDesc = v.findViewById(R.id.dish_name);
@@ -88,7 +94,7 @@ public class descFragment extends Fragment {
 
         pref = v.findViewById(R.id.list_pref);
         pref.setLayoutManager(manager);
-        adapter = new Suggestions_List_Adapter(getContext(),images,dishName,dishResturants,dishDescription,dishPrices, handler);
+        adapter = new Suggestions_List_Adapter(getContext(),images,dishName,dishResturants,dishDescription,dishPrices, recyclerItemClick);
         pref.setAdapter(adapter);
 
         return v;
@@ -130,6 +136,10 @@ public class descFragment extends Fragment {
             dishDescription.add(allOfTheItems.get(i).dishDescription);
             images.add(allOfTheItems.get(i).imageSrc);
         }
+    }
 
+    public interface RecyclerItemClick
+    {
+        void OnItemClickListener(int position);
     }
 }

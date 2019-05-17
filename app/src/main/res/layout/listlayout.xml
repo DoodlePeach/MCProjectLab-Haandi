@@ -1,72 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
 
-    <android.support.v7.widget.CardView
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginBottom="5dp"
+    android:orientation="vertical"
+    android:background="@drawable/sbv">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/image"/>
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp">
+        android:layout_marginTop="5dp">
 
-        <RelativeLayout
+        <android.support.v7.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/sbv">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:id="@+id/image"/>
-
+            android:layout_alignParentLeft="true"
+            android:id="@+id/cv_dishname"
+            app:cardCornerRadius="8dp"
+            app:cardBackgroundColor="#fff3b2">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/dishname"
-                android:layout_below="@+id/image"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:textStyle="bold"
-                android:textColor="@android:color/white"
-                />
-
-
-            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingLeft="6dp"
+                android:paddingRight="6dp"
+                android:textStyle="bold"
+                android:text="asdasdad"
+                />
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cv_resturant"
+            android:layout_toRightOf="@+id/cv_dishname"
+            android:layout_marginLeft="10dp"
+            app:cardCornerRadius="8dp"
+            app:cardBackgroundColor="#ffb4d9">
+
+            <TextView
                 android:id="@+id/dishResturant"
-                android:layout_below="@+id/image"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@id/dishname"
-                android:textStyle="bold"
-                android:textColor="@android:color/white"
-
-                />
-
-            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/disDiscription"
-                android:layout_below="@+id/dishname"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
+                android:paddingLeft="6dp"
+                android:paddingRight="6dp"
                 android:textStyle="bold"
-                android:textColor="@android:color/white"
+                android:text="asdasdad"
                 />
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            app:cardCornerRadius="8dp"
+            app:cardBackgroundColor="#99ff99">
+
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/dishPrice"
-                android:layout_below="@+id/image"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="6dp"
+                android:paddingRight="6dp"
                 android:textStyle="bold"
-                android:textColor="@android:color/white" />
-        </RelativeLayout>
+                android:text="asdasdad"/>
+
+        </android.support.v7.widget.CardView>
+    </RelativeLayout>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp"
+        android:layout_marginTop="5dp"
+        app:cardBackgroundColor="#fff3b2">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/disDiscription"
+            android:paddingLeft="6dp"
+            android:paddingRight="6dp"
+            android:textStyle="bold" />
     </android.support.v7.widget.CardView>
-</RelativeLayout>
+</LinearLayout>
