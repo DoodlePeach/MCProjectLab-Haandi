@@ -97,7 +97,6 @@ public class searchListFragment extends Fragment implements priceTakerDialog.OnC
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         final View v = rootView = inflater.inflate(R.layout.fragment_search_list, container, false);
-
         ListView lv = v.findViewById(R.id.lv_show_results);
 
         listView = v.findViewById(R.id.list_View);
@@ -123,7 +122,6 @@ public class searchListFragment extends Fragment implements priceTakerDialog.OnC
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
 
                 if(current_list_check==0) {
                     saadVariable = i;
@@ -366,5 +364,10 @@ public class searchListFragment extends Fragment implements priceTakerDialog.OnC
         set_less_Data();
         search_By_Price();
         set_less_adapter();
+    }
+
+    public interface SpinnerItemClick
+    {
+        void onSpinnerItemClick(int position);
     }
 }
